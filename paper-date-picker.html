@@ -159,11 +159,11 @@ styling:
         </div>
       </div>
       <neon-animated-pages id="pages" selected="{{_selectedPage}}" attr-for-selected="id"
-        entry-animation="fade-in-animation" exit-animation="fade-out-animation"
-        on-iron-select="_pageSelected">
+                           entry-animation="fade-in-animation" exit-animation="fade-out-animation"
+                           on-iron-select="_pageSelected">
         <neon-animatable id="chooseDate">
           <paper-calendar id="calendar" locale="{{locale}}" date="{{date}}"
-            min-date="{{minDate}}" max-date="{{maxDate}}">
+                          min-date="{{minDate}}" max-date="{{maxDate}}" scheduled-days="{{scheduledDays}}">
           </paper-calendar>
         </neon-animatable>
         <neon-animatable id="chooseYear">
@@ -246,6 +246,11 @@ styling:
         headingBreak: {
           type: String,
           value: '[,]'
+        },
+        scheduledDays: {
+          type: Object,
+          notify: true,
+          value: function() {return {}}
         },
         _selectedPage: String,
         _maxYear: {
