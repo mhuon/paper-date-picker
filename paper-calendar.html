@@ -436,7 +436,7 @@
           if (timestamp === this.today.getTime()) {
             cssClass += ' today';
           }
-          if (timestamp === this.date.getTime()) {
+          if (timestamp === new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate()).getTime()) {
             cssClass += ' selected';
             this.async(function() {
               this._updateSelection();
@@ -652,7 +652,7 @@
         if (oldValue && date.getTime && oldValue.getTime && date.getTime() === oldValue.getTime()) {
           return;
         }
-        this.set('date', date);
+        //this.set('date', date);
         this._updateSelection();
       },
       _tapDay: function(event) {
